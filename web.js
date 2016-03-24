@@ -3,6 +3,14 @@ var fs = require('fs');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var stdin = process.stdin;
+
+var spawn = require('child_process').spawn,
+    py    = spawn('python', ['readmifare.py']),
+
+    py.stdout.on('data', function(data){
+  console.log(data);
+});
+
 var elev = "Filip Nyquist";
 stdin.setRawMode( true );
 stdin.resume();
