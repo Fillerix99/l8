@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script   src="https://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
+  </head>
+  <body>
+<script>
+var socket = io();
+socket.on('update-msg', function (msg) {
+    console.log(msg.data);
+    $('#header').html(msg.data)
+});
+</script>
+<div id="header">
+Väntar på data...
+</div>
+  </body>
+</html>
